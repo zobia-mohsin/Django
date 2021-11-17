@@ -13,3 +13,14 @@ class Topic(models.Model):  # has two fields, one text and one with date
 # anytime you make changes to model.py file:
 # 1. py manage.py makemigrations
 # 2. py manage.py migrate
+# 3. register - admin.py
+class Entry(models.Model):
+    topic = models.ForeignKey(Topic,on_delete=models.CASCADE)
+    text = models.TextField()
+    date_ended = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'entries'
+
+    def __str__(self):
+        return f"{self.text[:50]}..." #print statment, returning back text but only first 50 characters with ...
