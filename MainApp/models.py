@@ -17,10 +17,10 @@ class Topic(models.Model):  # has two fields, one text and one with date
 class Entry(models.Model):
     topic = models.ForeignKey(Topic,on_delete=models.CASCADE)
     text = models.TextField()
-    date_ended = models.DateTimeField(auto_now_add=True)
+    date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural = 'entries'
-
+    #this means show text attribute of object in website which is why topc.text was not needed in topics.html
     def __str__(self):
         return f"{self.text[:50]}..." #print statment, returning back text but only first 50 characters with ...

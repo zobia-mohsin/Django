@@ -7,9 +7,11 @@
 
 <ul>
     <!--second topics here from view.py file, the key of dictionary(1st value)-->
+    <!--topic.date_added came from models file .....topic.text-->
+
     {% for topic in topics %}
 
-    <li>{{ topic }}</li>
+    <li>{{ topic }} - {{ topic.date_added }}</li>
     {% empty %}
     <li> No topics have been added yet. </li>
     {% endfor %}
