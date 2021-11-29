@@ -1,0 +1,20 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+
+
+<p>Topics</p>
+
+<ul>
+    <!--second topics here from view.py file, the key of dictionary(1st value)-->
+    {% for topic in topics %}
+
+    <li>{{ topic }}</li>
+    {% empty %}
+    <li> No topics have been added yet. </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
+
+<!--comments-->
