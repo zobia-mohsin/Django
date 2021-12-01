@@ -11,12 +11,17 @@
 
     {% for topic in topics %}
 
-    <li>{{ topic }} - {{ topic.date_added }}</li>
+    <li>
+        <a href="{% url 'MainApp:topic' topic.id %}"> {{ topic }} </a> - {{ topic.date_added }
+        }
+    </li>
     {% empty %}
     <li> No topics have been added yet. </li>
     {% endfor %}
 </ul>
 
+<a href="{% url 'MainApp:new_topic' %}">Add a new topic</a>
+
 {% endblock content %}
 
-<!--comments-->
+<!--comments href creates a link -->
