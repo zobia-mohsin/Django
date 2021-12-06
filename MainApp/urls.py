@@ -13,5 +13,6 @@ urlpatterns = [
     #variable: <int:topic_id>/
     path('new_topic/',views.new_topic,name='new_topic'),
     path('new_entry/<int:topic_id>/',views.new_entry,name='new_entry'), #new enrty needs a topic id so knows what the entry is for
+    path('edit_entry/<int:entry_id>/',views.edit_entry,name='edit_entry'),
 ]
 

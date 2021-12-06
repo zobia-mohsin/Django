@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .forms import TopicForm, EntryForm
+from .forms import TopicForm, EntryForm, Entry
 #create new view after creating URL
 from .models import Topic #. means look in same directory that the views is in
 # Create your views here.
@@ -48,3 +48,18 @@ def new_entry(request, topic_id):
 
     context = {'form':form, 'topic':topic}
     return render(request, 'MainApp/new_entry.html', context)
+
+def edit_entry(request,entry_id):
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic #lowercase
+
+    if request.method != 'POST': #means its a get method, not empty form so give it instance
+        form = EntryForm(instance=entry)
+    else:
+        form = EntryForm(instance=entry, data=request.POST) #request.POST to record changes made to database
+        if form.is_valid():
+            form.save()
+            return redirect('MainApp:topic', topic_id=topic.id) #redirect reader to topic page and specific page topic_id
+
+    context={'entry':entry, 'topic':topic, 'form':form}
+    return render(request, 'MainApp/edit_entry.html', context)
