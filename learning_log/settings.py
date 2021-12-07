@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     # myapps
     'MainApp',
     'users', #make changes to root urls in learning log as well
+    #third party apps.
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
