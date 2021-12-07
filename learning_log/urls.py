@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("MainApp.urls")), #telling main project there is a app called mainapp which has all the urls,
     #everytime we add app include it here
+    path('users/', include('users.urls')), #will inclkude any urls that start with users
 ]
