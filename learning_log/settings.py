@@ -125,3 +125,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = 'users:login' #this code that requires a login will direct them to log in pages
+# Heroku settings.
+import django_heroku
+django_heroku.settings(locals())
