@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render,  get_object_or_404
-from .forms import TopicForm, EntryForm, Entry
+from .forms import TopicForm, EntryForm
 #create new view after creating URL
-from .models import Topic #. means look in same directory that the views is in
+from .models import Topic, Entry #. means look in same directory that the views is in
 # Create your views here.
 from django.contrib.auth.decorators import login_required
 from django.http import Http404

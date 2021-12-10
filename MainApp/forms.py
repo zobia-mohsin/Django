@@ -13,3 +13,4 @@ class EntryForm(forms.ModelForm):
         model =  Entry #case sensitive
         fields = ['text']
         labels = {'text': ''}
+        widgets = {'text':forms.Textarea(attrs={'colgs':80})}
