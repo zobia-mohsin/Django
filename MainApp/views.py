@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render,  get_object_or_404
 from .forms import TopicForm, EntryForm, Entry
 #create new view after creating URL
 from .models import Topic #. means look in same directory that the views is in
@@ -20,7 +20,7 @@ def topics(request):
 
 @login_required
 def topic(request,topic_id): #the id 1 or 2 gets passed to this function and works on it accordingly
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
     if topic.owner != request.user:
         raise Http404
     entries = topic.entry_set.order_by('-date_added') #this will give all entries realted to that id (topic)
